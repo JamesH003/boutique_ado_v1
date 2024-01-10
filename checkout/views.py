@@ -88,7 +88,6 @@ def checkout(request):
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
 
-
     template = 'checkout/checkout.html'
     context = {
         'order_form':order_form,
@@ -114,7 +113,7 @@ def checkout_success(request, order_number):
 
     template = 'checkout/checkout_success.html'
     context = {
-        order: order,
+        'order': order,
     }
 
     return render(request, template, context)
